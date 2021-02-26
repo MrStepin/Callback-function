@@ -6,35 +6,19 @@ using System.Threading.Tasks;
 
 namespace Callback_functions
 {
-    class Checker
+    public class Checker<T>
     {
-        public bool Any(int[] nums)
+        public List<T> ResultList(T[] massive, Func<T, bool> predicate)
         {
-            foreach (int num in nums)
+            List<T> resultList = new List<T>();
+            foreach (T num in massive)
             {
-                if (num > 3)
+                if (predicate(num))
                 {
-                    return true;
-                }  
-            }
-            return false;
-        }
-
-        public bool All(int[] nums)
-        {
-            int count = 0;
-            foreach (int num in nums)
-            {
-                if (num > 3)
-                {
-                    count += 1;
-                }
-                if (count == nums.Length)
-                {
-                    return true;
+                    resultList.Add(num);
                 }
             }
-            return false;
+            return resultList;
         }
     }
 }
