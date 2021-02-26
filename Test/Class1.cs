@@ -9,7 +9,7 @@ namespace Test
         private int[] Massive = new int[5] { 5, 4, 2, 3, -1};
         Checker<int> checker = new Checker<int>();
 
-        [TestCase]
+        [Test]
         public void CheckMoreThanThreeCondition()
         {
             bool MoreThree(int num)
@@ -20,7 +20,7 @@ namespace Test
             CollectionAssert.Contains(checker.ResultList(Massive, MoreThree), 4);
         }
 
-        [TestCase]
+        [Test]
         public void CheckEvenCondition()
         {
             bool Even(int num)
@@ -30,7 +30,7 @@ namespace Test
             CollectionAssert.DoesNotContain(checker.ResultList(Massive, Even), 3);
             CollectionAssert.Contains(checker.ResultList(Massive, Even), 4);
         }
-        [TestCase]
+        [Test]
         public void CheckOddCondition()
         {
             bool Odd(int num)
@@ -41,7 +41,7 @@ namespace Test
             CollectionAssert.Contains(checker.ResultList(Massive, Odd), -1);
             CollectionAssert.Contains(checker.ResultList(Massive, Odd), 5);
         }
-        [TestCase]
+        [Test]
         public void CheckMinusCondition()
         {
             bool Minus(int num)
@@ -51,7 +51,7 @@ namespace Test
             CollectionAssert.DoesNotContain(checker.ResultList(Massive, Minus), 2);
             CollectionAssert.Contains(checker.ResultList(Massive, Minus), -1);
         }
-        [TestCase]
+        [Test]
         public void CheckAnyAndAll()
         {
             bool MoreThree(int num)

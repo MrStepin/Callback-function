@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework.Constraints;
@@ -39,19 +40,14 @@ namespace Callback_functions
 
         public static bool AllNum(this int[] massive, Func<int, bool> predicate)
         {
-            int count = 0;
             foreach (int num in massive)
             {
-                if (predicate(num))
+                if (!predicate(num))
                 {
-                    count += 1;
-                }
-                if (count == massive.Length)
-                {
-                    return true;
+                    return false;
                 }
             }
-            return false;
+            return true;
         }
     }
 }
