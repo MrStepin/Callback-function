@@ -51,5 +51,16 @@ namespace Test
             CollectionAssert.DoesNotContain(checker.ResultList(Massive, Minus), 2);
             CollectionAssert.Contains(checker.ResultList(Massive, Minus), -1);
         }
+        [TestCase]
+        public void CheckAnyAndAll()
+        {
+            bool MoreThree(int num)
+            {
+                return num > 3;
+            }
+
+            Assert.IsTrue(Massive.AnyNum(MoreThree));
+            Assert.False(Massive.AllNum(MoreThree));
+        }
     }
 }
